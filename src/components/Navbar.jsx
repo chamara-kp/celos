@@ -1,38 +1,46 @@
-import { useState, useEffect } from 'react'
-import { Menu, X } from 'lucide-react'
+import { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
 
 const links = [
-  { label: 'About',    href: '#about' },
-  { label: 'Services', href: '#services' },
-  { label: 'Pricing',  href: '#pricing' },
-  { label: 'Team',     href: '#team' },
-  { label: 'Feedback', href: '#feedback' },
-  { label: 'Contact',  href: '#contact' },
-]
+  { label: "Home", href: "#hero" },
+  { label: "About", href: "#about" },
+  { label: "Services", href: "#services" },
+  { label: "Team", href: "#team" },
+  { label: "Feedback", href: "#feedback" },
+  { label: "Contact", href: "#contact" },
+];
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
-  const [open, setOpen]         = useState(false)
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled ? 'bg-white/90 backdrop-blur-xl border-b border-charcoal-100 shadow-sm' : 'bg-transparent'
-    }`}>
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-16">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-white/90 backdrop-blur-xl border-b border-charcoal-100 shadow-sm"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="flex items-center justify-between h-16 px-6 mx-auto max-w-7xl md:px-12">
         {/* Logo */}
-        <a href="#hero" className="font-display font-extrabold text-xl tracking-tight">
-          <span className="text-orange-500">CE</span><span className="text-charcoal-900">LOS</span>
+        <a
+          href="#hero"
+          className="text-xl font-extrabold tracking-tight font-display"
+        >
+          <span className="text-orange-500">CE</span>
+          <span className="text-charcoal-900">LOS</span>
         </a>
 
         {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-8">
-          {links.map(l => (
+        <ul className="items-center hidden gap-8 md:flex">
+          {links.map((l) => (
             <li key={l.href}>
               <a
                 href={l.href}
@@ -64,8 +72,8 @@ export default function Navbar() {
 
       {/* Mobile drawer */}
       {open && (
-        <div className="md:hidden bg-white border-t border-charcoal-100 px-6 py-4 flex flex-col gap-4">
-          {links.map(l => (
+        <div className="flex flex-col gap-4 px-6 py-4 bg-white border-t md:hidden border-charcoal-100">
+          {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
@@ -85,5 +93,5 @@ export default function Navbar() {
         </div>
       )}
     </nav>
-  )
+  );
 }

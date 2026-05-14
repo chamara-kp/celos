@@ -126,3 +126,12 @@
   background: #fb923c;
   border-radius: 999px;
 }
+
+/* hide horizontal scrollbar while keeping scroll functionality */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* WebKit */
+}
