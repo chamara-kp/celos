@@ -9,6 +9,9 @@ import Team from "./sections/Team";
 import Testimonials from "./sections/Testimonials";
 import ServiceNotes from "./sections/ServiceNotes";
 import Contact from "./sections/Contact";
+import SpecialCategoryPackages from "./sections/SpecialCategoryPackages";
+import Portfolio from "./sections/Portfolio";
+import TrustedBy from "./sections/TrustedBy";
 
 export default function App() {
   return (
@@ -16,16 +19,24 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
+
         <About />
+        <WhyUs />
         <Services />
+        <Portfolio />
+
+        <SpecialCategoryPackages />
 
         <Addons />
-        <WhyUs />
+
         <Team />
+
         <Testimonials />
         <ServiceNotes />
         <Contact />
+        <TrustedBy />
       </main>
+
       <Footer />
     </>
   );

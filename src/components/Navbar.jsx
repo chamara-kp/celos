@@ -5,6 +5,7 @@ const links = [
   { label: "Home", href: "#hero" },
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
+  { label: "Portfolio", href: "#portfolio" },
   { label: "Team", href: "#team" },
   { label: "Feedback", href: "#feedback" },
   { label: "Contact", href: "#contact" },
@@ -39,7 +40,7 @@ export default function Navbar() {
         </a>
 
         {/* Desktop links */}
-        <ul className="items-center hidden gap-8 md:flex">
+        <ul className="items-center hidden gap-5 lg:flex xl:gap-8">
           {links.map((l) => (
             <li key={l.href}>
               <a
@@ -55,14 +56,14 @@ export default function Navbar() {
         {/* CTA */}
         <a
           href="#contact"
-          className="hidden md:inline-flex items-center gap-2 bg-charcoal-900 hover:bg-orange-500 text-white text-sm font-bold px-5 py-2.5 rounded-xl transition-all duration-300 hover:-translate-y-0.5"
+          className="hidden lg:inline-flex items-center gap-2 bg-charcoal-900 hover:bg-orange-500 text-white text-sm font-bold px-5 py-2.5 rounded-xl transition-all duration-300 hover:-translate-y-0.5"
         >
           Get started
         </a>
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden text-charcoal-700"
+          className="lg:hidden text-charcoal-700"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -72,7 +73,7 @@ export default function Navbar() {
 
       {/* Mobile drawer */}
       {open && (
-        <div className="flex flex-col gap-4 px-6 py-4 bg-white border-t md:hidden border-charcoal-100">
+        <div className="flex flex-col gap-4 px-6 py-4 bg-white border-t lg:hidden border-charcoal-100">
           {links.map((l) => (
             <a
               key={l.href}
